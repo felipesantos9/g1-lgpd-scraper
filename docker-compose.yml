@@ -1,0 +1,18 @@
+services:
+  scraper:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+  test:
+    build: .
+    entrypoint: ["pytest"]
+    command: ["-q"]
+
+  evaluate:
+    build: .
+    entrypoint: ["python"]
+    command: ["evaluation/evaluate_quality.py", "--reference", "evaluation/reference_sample.csv", "--scraped", "data/processed/latest.csv"]
+    volumes:
+      - ./data:/app/data

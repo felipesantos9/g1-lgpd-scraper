@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Projeto: g1-lgpd-scraper
+logs/
+data/raw/
+*.egg-link

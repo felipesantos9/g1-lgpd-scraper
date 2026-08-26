@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "g1-lgpd-scraper"
+version = "0.1.0"
+description = "Scraper corrigido para resultados de busca do G1 (termo 'lgpd'), coletados via browser headless (renderização client-side)."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "playwright>=1.40",
+    "tenacity>=8.2",
+    "tzdata>=2024.1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+g1-lgpd-scraper = "g1_lgpd_scraper.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
